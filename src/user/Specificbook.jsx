@@ -8,29 +8,41 @@ function Specificbook() {
   const book = useSelector((state) => state.books);
   const { id } = useParams();
   const bookId = id;
-  // const reservedBook = useSelector((state) => state.books.reservedBook);
-  
+
   useEffect(() => {
     dispatch(userFetchspecificBooks(bookId));
   }, [dispatch, bookId]);
-  
+
+  const handleReserveClick = () => {
+    // Implement reserve book logic here
+    console.log('Book Reserved');
+  };
+
+  const handleBorrowClick = () => {
+    // Implement borrow book logic here
+    console.log('Book Borrowed');
+  };
+
   return (
     <div>
       <h2 style={{ fontSize: '2rem', marginBottom: '20px' }}>Specific Book Details</h2>
       {book ? (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '8px', overflow: 'hidden', maxWidth: '400px' }}>
+        <div className="flex items-center justify-center">
+          <div className="max-w-4xl w-full bg-white overflow-hidden rounded-lg shadow-md flex">
             <img
               src={book.image}
               alt={book.title}
-              style={{ width: '100%', height: 'auto', borderRadius: '8px 8px 0 0' }}
+              className="w-1/2 object-cover rounded-l-lg"
             />
-            <div style={{ padding: '20px' }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>{book.title}</h3>
-              <p style={{ fontSize: '1rem', marginBottom: '10px' }}>Author: {book.author}</p>
-              <p style={{ fontSize: '1rem', marginBottom: '10px' }}>ISBN: {book.isbn}</p>
-              <p style={{ fontSize: '1rem', marginBottom: '10px' }}>Total Copies: {book.totalCopies}</p>
-              <p style={{ fontSize: '1rem', marginBottom: '10px' }}>Available Copies: {book.availableCopies}</p>
+            <div className="w-1/2 p-6">
+              <h3 className="text-3xl font-semibold mb-3">{book.title}</h3>
+              <p className="text-lg mb-3">Author: {book.author}</p>
+              <p className="text-lg mb-3">ISBN: {book.isbn}</p>
+              <p className="text-lg mb-3">Available Copies: {book.availableCopies}</p>
+              <div className="flex space-x-4">
+                <button onClick={handleReserveClick} className="bg-blue-500 text-white px-4 py-2 rounded">Reserve</button>
+                <button onClick={handleBorrowClick} className="bg-green-500 text-white px-4 py-2 rounded">Borrow</button>
+              </div>
             </div>
           </div>
         </div>

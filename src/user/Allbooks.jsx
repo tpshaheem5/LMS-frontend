@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userFetchAllBooks } from '../redux/bookSlice';
 import "../css/userallbooks.css";
 import { Link } from 'react-router-dom';
-// import { useCookies } from 'react-cookie';
+
 
 function Allbooks() {
     const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function Allbooks() {
                                 <h3>{book.title}</h3>
                                 <p>Author: {book.author}</p>
                             </div>
-                        </div>
+                        </div>  
                     </Link>
                 ))}
             </div>

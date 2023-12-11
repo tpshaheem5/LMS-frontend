@@ -51,7 +51,9 @@ export const userFetchspecificBooks = createAsyncThunk('specificbooks/fetchall',
 });
 
 export const reserveBook = createAsyncThunk('books/reserveBook', async (bookId) => {
-  const response = await axios.post(`/user/${bookId}/reserve`);
+  const response = await axios.post(`/user/${bookId}/reserve`,{
+    headers: { Authorization: `Bearer ${getCookies}` }
+    });
   return response.data;
 });
 
