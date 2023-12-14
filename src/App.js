@@ -10,6 +10,7 @@ import Addbook from "./admin/Addbook";
 import Editbook from "./admin/Editbook";
 import Allbooks from "./user/Allbooks";
 import Specificbook from "./user/Specificbook";
+import Profile from "./user/Profile";
 
 
 
@@ -28,6 +29,8 @@ function App() {
         <Route path="/editbooks/:id" element={<Editbook/>}/>
         <Route path="/allbooks" element={<Allbooks/>}/>
         <Route path="/specificbook/:id" element={<Specificbook/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+        
 
         
       </Routes>
