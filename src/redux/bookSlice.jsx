@@ -57,13 +57,7 @@ export const reserveBook = createAsyncThunk('books/reserveBook', async (bookId) 
   return response.data;
 });
 
-export const profile = createAsyncThunk('profile/userprofile',async()=>{
-  const response = await axios.get(`/user/profile`,{
-    headers: { Authorization: `Bearer ${getCookies}` }
-  })
-  // console.log(response.data);
-  return response.data.user;
-})
+
 
 
 
@@ -84,8 +78,6 @@ const booksSlice = createSlice({
       return action.payload;
     }).addCase(reserveBook.fulfilled, (state, action) => {
       state.reservedBook = action.payload;
-    }).addCase(profile.fulfilled,(state,action)=>{
-      state.profile= action.payload;
     })
     
   },

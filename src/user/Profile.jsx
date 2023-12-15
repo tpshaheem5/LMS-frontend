@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import {profile} from '../redux/bookSlice'
+import {profile} from '../redux/userSlice'
 
 
 function Profile() {    
     const dispatch = useDispatch()
-    const user = useSelector((state)=>state.books)
+    const user = useSelector((state)=>state.user)
 
-    console.log(user);
+    // console.log("userrrrrrrr",user);
     
   useEffect(() => {
     dispatch(profile());
